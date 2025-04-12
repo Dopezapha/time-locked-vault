@@ -1,0 +1,7 @@
+BITCOIN_TESTNET_RPC_URL=http://localhost:18332
+BITCOIN_TESTNET_RPC_USERNAME="Dopezapha"
+BITCOIN_TESTNET_RPC_PASSWORD="Danielbullet22@"
+BITCOIN_TESTNET_CONTRACT_WALLET="tb1qsl8lqdhs2rex48ur8xddsq4r2a4exmej8mw58z"
+BITCOIN_TESTNET_OWNER_ADDRESS="tb1q0ekktc9m6q6fdp96pf72j0n2st50e0lg2k539m"
+LIGHTNING_NODE_URL=http://localhost:9735  # Optional
+ORDINALS_API_URL=http://localhost:3000    # Optional
