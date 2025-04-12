@@ -1,0 +1,59 @@
+[package]
+name = "time_locked_deposit"
+version = "0.1.0"
+edition = "2021"
+description = "A time-locked deposit contract for Bitcoin testnet with support for Bitcoin, Runes, Ordinals, and Lightning Network"
+authors = ["officialnwaneridaniel@gmail.com>"]
+readme = "README.md"
+keywords = ["bitcoin", "testnet", "timelock", "contract", "runes"]
+categories = ["cryptography", "finance"]
+
+[dependencies]
+# Core dependencies
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.10"
+
+# Bitcoin-specific dependencies
+bitcoincore-rpc = "=0.17.0"
+# Async runtime
+tokio = { version = "1.28.0", features = ["full"], optional = true }
+
+# Serialization
+serde_json = "1.0"
+
+# Utilities
+rand = "0.8"
+hex = "0.4"
+base64 = "0.21"
+
+[dev-dependencies]
+tokio-test = "0.4"
+tempfile = "3.5"
+mockall = "0.11"
+criterion = "0.5"
+
+[features]
+default = ["bitcoin-testnet"]
+bitcoin-testnet = []
+bitcoin-mainnet = []
+lightning = ["tokio"]
+ordinals = []
+multisig = []
+
+[[bin]]
+name = "time_locked_deposit"
+path = "src/main.rs"
+
+[lib]
+name = "time_locked_deposit"
+path = "src/lib.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
